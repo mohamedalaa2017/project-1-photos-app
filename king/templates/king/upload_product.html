@@ -1,0 +1,17 @@
+{% extends "king/layout.html" %}
+
+{% block title  %} upload image {% endblock%}
+
+{% block body %}
+    <h1> upload </h1>
+    <form action="{% url 'king:upload' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label> title </label>
+        {{ form.title }}<br><br>
+        <label> Describtion </label> <br>
+        {{ form.describe }}<br>
+        <label> image </label>
+        {{ form.image }}<br>
+        <input type="submit" value="upload">
+    </form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "users/layout.html" %}
+
+{% block title %} login  {% endblock %}
+
+
+
+
+
+{% block body %}
+
+    <h1 style="text-align: center;"> login </h1>
+
+    {% if massage %}
+        {{ massage }}
+    {% endif %}
+    <div style="text-align: center;">
+        <form action="{% url 'users:login' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="username" size="30"><br>
+            <input type="password" name="password" placeholder="password" size="30"><br>
+            <input type="submit" value="login">
+        </form>
+    </div>
+    <a href="{% url 'users:register' %}"> Register </a>
+
+
+{% endblock %}

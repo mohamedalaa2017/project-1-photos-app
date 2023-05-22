@@ -1,0 +1,16 @@
+{% extends "king/layout.html" %}
+
+
+{% block title %} index {% endblock %}
+{% block body %}
+    <h1> photos </h1>
+    {% for product in products %}
+        <a href="{% url 'king:photo_information' id_photo=product.id %}" style="display: block; margin: 0; padding: 0; font-size: 16px; line-height: 1.5; color: black; text-decoration: none;"> {{ product.title }} </a>
+        
+        <a href="{% url 'king:photo_information' id_photo=product.id %}">
+            <img style="max-width: 300px;" src="{{ product.image.url }}">
+        </a>
+
+        <hr>
+    {% endfor %}
+{% endblock %}

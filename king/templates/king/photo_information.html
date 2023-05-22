@@ -1,0 +1,18 @@
+{% extends "king/layout.html" %}
+
+{% block body %}
+
+    <h1> {{ photo.title }} </h1>
+
+    <img style="max-width: 400px" src="{{ photo.image.url }}">
+    {% if request.user != photo.user %}
+        <p> uploaded by: {{ photo.user }} </p> 
+    {% endif %}
+    <p> uploaded at :  {{ photo.created_at }}</p>
+    <h3> Descrition </h3>
+    <p> {{ photo.describe }} </p>
+    
+
+
+
+{% endblock %}
